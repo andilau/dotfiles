@@ -70,7 +70,7 @@ func! WordProcessorMode()
   setlocal linebreak " break visually
   setlocal wrap
   setlocal nolist 
-  setlocal breakat=\ |@-+;:,./?^I
+  "  setlocal breakat=\ |@-+;:,./?^I
   setlocal noexpandtab
   setlocal foldcolumn=3 
   setlocal nuw=5
