@@ -1,0 +1,63 @@
+#!/usr/bin/env bash
+
+#
+# Author: Andi Lau <andi@herrlau.de>
+# Author: Tom Ryder (@tejr) <tom@sanctum.geek.nz>
+#
+
+self=install
+
+# Replace existing file with link if user confirms
+lns() {
+	local file=$1 link=$2
+	if [[ -e $link ]]; then 
+		read -p "$link already exists, remove? [y/N] " confirm
+		case $confirm in
+			y*|Y*)
+				rm -r -- "$link"
+				ln -s -- "$file" "$link"
+				return
+				;;
+			*)
+				return 1
+				;;
+		esac
+	else
+		ln -s -- "$file" "$link"
+	fi
+	return
+}
+
+# Check for git
+if ! hash git 2>/dev/null; then
+	printf '%s: Could not find git(1)!\n' "$self" <&2
+	exit 1
+fi
+
+# Check dotfiles directory
+dotfiles=$HOME/.dotfiles
+if ! [[ -d $dotfiles ]]; then
+	printf 'install: Could not find %s!\n' "$dotfiles" >&2
+	exit 1
+fi
+
+# Check out submodules
+(cd -- "$dotfiles" && git submodule update --init)
+
+# Link in configuraion files
+lns "$dotfiles"/bash/bashrc          "$HOME"/.bashrc
+lns "$dotfiles"/vim/vimrc            "$HOME"/.vimrc
+lns "$dotfiles"/vim                  "$HOME"/.vim
+lns "$dotfiles"/zsh/zshrc            "$HOME"/.zshrc
+
+# Link in shell stuff
+while getopts :t opt; do
+    case $opt in
+        # Tmux
+        t)
+            lns "$dotfiles"/tmux/tmux.conf "$HOME"/.tmux.conf
+            ;;
+
+    esac
+done
+
