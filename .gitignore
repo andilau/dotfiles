@@ -1,0 +1,6 @@
+.DS_Store
+ncmpcpp/*.log
+vim/spell/*
+vim/backup/*
+vim/swap/*
+vim/undo/*
