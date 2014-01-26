@@ -12,3 +12,4 @@ Tools
 *   [Bash](https://www.gnu.org/software/bash/) — GNU Bourne-Again Shell
 *   [tmux](http://tmux.sourceforge.net/) — Terminal multiplexer
 *   [Vim](http://www.vim.org/) — Vi IMproved, a text editor
+*   [Zsh](http://zsh.sourceforge.net) - Zsh, the Z shell
