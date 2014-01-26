@@ -1,5 +1,7 @@
-set encoding=utf-8
 set nocompatible
+if has('multi_byte')
+	set encoding=utf-8
+endif
 
 autocmd! bufwritepost .vimrc source %
 
@@ -10,6 +12,16 @@ filetype plugin on
 filetype indent on
 syntax on
 
+" Indentation
+set autoindent
+set expandtab
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
+set smarttab
+set shiftround
+
+" Shortcuts
 let mapleader = ","
 nnoremap . <NOP>
 set wildmode=list:longest
@@ -65,6 +77,7 @@ let g:airline_powerline_fonts = 1
 let g:airline_theme = 'solarized'
 let g:airline#extensions#tabline#enabled = 1
 
+" Word processor mode
 func! WordProcessorMode() 
   setlocal formatoptions=1 " don't include linebreaks
   setlocal linebreak " break visually
