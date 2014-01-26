@@ -11,7 +11,7 @@ self=install
 lns() {
 	local file=$1 link=$2
 	if [[ -e $link ]]; then 
-		read -p "$link already exists, remove? [y/N] " confirm
+		read -p "$link already exists; remove? [y/N] " confirm
 		case $confirm in
 			y*|Y*)
 				rm -r -- "$link"
@@ -60,4 +60,4 @@ while getopts :t opt; do
 
     esac
 done
-
+shift $((OPTIND-1))
