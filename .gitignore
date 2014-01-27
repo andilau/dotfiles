@@ -1,5 +1,6 @@
 .DS_Store
-
+gnupg/*
+!gnupg/*.conf
 ncmpcpp/*.log
 vim/.netrwhist
 vim/spell/*
