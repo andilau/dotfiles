@@ -13,3 +13,4 @@ Tools
 *   [GnuPG](http://www.gnupg.org/) — GNU Privacy Guard
 *   [tmux](http://tmux.sourceforge.net/) — Terminal multiplexer
 *   [Vim](http://www.vim.org/) — Vi IMproved, a text editor
+*   [Zsh](http://zsh.sourceforge.net) - Zsh, the Z shell
