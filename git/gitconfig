@@ -1,0 +1,11 @@
+[user]
+	name = Andi Lau
+	email = andi@herrlau.de
+[core]
+	editor = vim
+[log]
+	date = local
+[push]
+	default = matching
+[merge]
+	tool = vimdiff
