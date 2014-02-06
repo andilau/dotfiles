@@ -12,6 +12,7 @@ Tools
 *   [Bash](https://www.gnu.org/software/bash/) — GNU Bourne-Again Shell
 *   [Git](http://git-scm.com/) — Distributed version control system
 *   [GnuPG](http://www.gnupg.org/) — GNU Privacy Guard
+*   [ncmpcpp](http://ncmpcpp.rybczak.net/) — ncurses music player client
 *   [tmux](http://tmux.sourceforge.net/) — Terminal multiplexer
 *   [Vim](http://www.vim.org/) — Vi IMproved, a text editor
 *   [Zsh](http://zsh.sourceforge.net) - Zsh, the Z shell

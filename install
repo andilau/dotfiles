@@ -52,7 +52,7 @@ lns "$dotfiles"/vim                  "$HOME"/.vim
 lns "$dotfiles"/zsh/zshrc            "$HOME"/.zshrc
 
 # Link in shell stuff
-while getopts :gt opt; do
+while getopts :gnt opt; do
     case $opt in
 
         # GnuPG
@@ -60,6 +60,12 @@ while getopts :gt opt; do
             mkdir -p -- "$HOME"/.gnupg
             lns "$dotfiles"/gnupg/gpg.conf       "$HOME"/.gnupg/gpg.conf
             # lns "$dotfiles"/gnupg/gpg-agent.conf "$HOME"/.gnupg/gpg-agent.conf
+            ;;
+
+        # Ncmpcpp
+        n)
+            mkdir -p -- "$HOME"/.ncmpcpp
+            lns "$dotfiles"/ncmpcpp/config       "$HOME"/.ncmpcpp/config
             ;;
 
         # Tmux
