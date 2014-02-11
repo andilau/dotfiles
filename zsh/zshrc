@@ -66,6 +66,8 @@ export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/l
  
 alias cl='clear'
 alias tmux='tmux -2'
+alias l='tree --dirsfirst -ChFL 1'
+alias gst='git status -sb'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
