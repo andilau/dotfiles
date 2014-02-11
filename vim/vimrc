@@ -34,6 +34,8 @@ set softtabstop=4
 set tabstop=4
 set smarttab
 set shiftround
+set list
+set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
 
 " Shortcuts
 let mapleader = ","
@@ -50,6 +52,7 @@ noremap <Leader>e :quit<CR>
 " Bind
 
 " Command line
+set ttyfast
 set lazyredraw
 set noshowmode
 set number
