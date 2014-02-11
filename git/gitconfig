@@ -3,6 +3,7 @@
 	email = andi@herrlau.de
 [core]
 	editor = vim
+	pager = cat
 [log]
 	date = local
 [push]
