@@ -1,0 +1,9 @@
+" Set the default tab
+set window playlist
+
+" Set the windows to show at startup
+set windows playlist,library,browse,help
+
+set reconnect
+
+connect pi.local

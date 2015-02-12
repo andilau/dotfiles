@@ -52,7 +52,7 @@ lns "$dotfiles"/vim                  "$HOME"/.vim
 lns "$dotfiles"/zsh/zshrc            "$HOME"/.zshrc
 
 # Link in shell stuff
-while getopts :gnt opt; do
+while getopts :gntv opt; do
     case $opt in
 
         # GnuPG
@@ -71,6 +71,11 @@ while getopts :gnt opt; do
         # Tmux
         t)
             lns "$dotfiles"/tmux/tmux.conf "$HOME"/.tmux.conf
+            ;;
+
+        # Vimpc
+        v)
+            lns "$dotfiles"/vimpc/vimpcrc "$HOME"/.vimpcrc
             ;;
 
     esac

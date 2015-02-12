@@ -15,4 +15,5 @@ Tools
 *   [ncmpcpp](http://ncmpcpp.rybczak.net/) — ncurses music player client
 *   [tmux](http://tmux.sourceforge.net/) — Terminal multiplexer
 *   [Vim](http://www.vim.org/) — Vi IMproved, a text editor
+*   [vimpc](https://github.com/boysetsfrog/vimpc/) — Client for mpd with vi-like key bindings
 *   [Zsh](http://zsh.sourceforge.net) - Zsh, the Z shell
