@@ -36,7 +36,6 @@ set smarttab
 set shiftround
 set list
 set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
-
 " Shortcuts
 let mapleader = ","
 nnoremap . <NOP>
@@ -90,6 +89,8 @@ map <Leader>, <esc>:tabprevious<CR>
 map <Leader>. <esc>:tabnext<CR>
 vnoremap <Leader>s :sort<CR>
 
+" Mac OS X clipboard sharing
+set clipboard=unnamed
 
 " Airline
 " git clone https://github.com/bling/vim-airline ~/.vim/bundle/vim-airline
