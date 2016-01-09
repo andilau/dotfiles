@@ -8,7 +8,7 @@ autocmd! bufwritepost .vimrc source %
 silent! call pathogen#infect()
 silent! call pathogen#helptags()
 
-" Plugins and indentation
+" Plugins and indentation {{{
 if has('autocmd')
     filetype indent plugin on
     nnoremap _ap :setlocal filetype=apache<CR>
@@ -25,7 +25,7 @@ if has('autocmd')
     nnoremap _vi :setlocal filetype=vim<CR>
     nnoremap _xm :setlocal filetype=xml<CR>
 endif
-
+" }}}
 " Indentation {{{
 set autoindent
 set expandtab
@@ -37,8 +37,7 @@ set shiftround
 set list
 set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
 " }}}
-"
-" Shortcuts
+" Shortcuts {{{
 let mapleader = ","
 "nnoremap . <NOP>
 set wildmode=list:longest
@@ -50,9 +49,8 @@ vnoremap <Leader>w <C-C>:update<CR>
 inoremap <Leader>w <C-O>:update<CR>
 " Quick quit
 noremap <Leader>e :quit<CR>
-" Bind
-
-" Command line
+" }}}
+" Command line {{{¬
 set ttyfast
 set lazyredraw
 set noshowmode
@@ -60,8 +58,8 @@ set number
 set ruler
 set wildmenu
 set laststatus=2
-
-" Color scheme
+" }}}
+" Color scheme {{{¬
 if has('syntax')
     syntax enable
     set t_Co=256
@@ -71,6 +69,14 @@ if has('syntax')
     call togglebg#map("<F5>")
 endif
 
+" Airline
+" git clone https://github.com/bling/vim-airline ~/.vim/bundle/vim-airline
+let g:airline_powerline_fonts = 1
+let g:airline_theme = 'solarized'
+let g:airline_solarized_bg = 'light'
+let g:airline#extensions#tabline#enabled = 1
+
+" }}}
 
 " Disable backup and swap files
 set nobackup
@@ -99,12 +105,6 @@ vnoremap <Leader>s :sort<CR>
 
 " Mac OS X clipboard sharing
 set clipboard=unnamed
-
-" Airline
-" git clone https://github.com/bling/vim-airline ~/.vim/bundle/vim-airline
-let g:airline_powerline_fonts = 1
-let g:airline_theme = 'solarized'
-let g:airline#extensions#tabline#enabled = 1
 
 " Word processor mode
 func! WordProcessorMode() 
