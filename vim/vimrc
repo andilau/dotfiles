@@ -22,6 +22,7 @@ if has('autocmd')
     nnoremap _sh :setlocal filetype=sh<CR>
     nnoremap _vi :setlocal filetype=vim<CR>
     nnoremap _xm :setlocal filetype=xml<CR>
+    autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 endif
 " }}}
 " Spaces & Tabs {{{
