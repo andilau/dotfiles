@@ -49,6 +49,7 @@ lns "$dotfiles"/bash/bashrc          "$HOME"/.bashrc
 lns "$dotfiles"/git/gitconfig        "$HOME"/.gitconfig
 lns "$dotfiles"/vim/vimrc            "$HOME"/.vimrc
 lns "$dotfiles"/vim                  "$HOME"/.vim
+lns "$dotfiles"/vim/gvimrc           "$HOME"/.gvimrc
 lns "$dotfiles"/zsh/zshrc            "$HOME"/.zshrc
 
 # Link in shell stuff
