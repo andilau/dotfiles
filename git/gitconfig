@@ -1,21 +1,64 @@
 [user]
 	name = Andi Lau
 	email = andi@herrlau.de
+
+[github]
+	user = andilau
+
 [core]
 	editor = vim
 	pager = cat
+
 [log]
 	date = local
+
 [push]
 	default = matching
+
+[pull]
+	default = matching
+
 [merge]
 	tool = vimdiff
+
 [diff]
 	tool = vimdiff
+
 [difftool]
 	prompt = false
-[alias]
-	d = difftool
+
 [filter "media"]
 	clean = git-media-clean %f
 	smudge = git-media-smudge %f
+
+[color]
+	ui = true
+
+[color "diff"]
+	meta = yellow
+	frag = magenta
+	old = red bold
+	new = green
+	plain = white
+
+[alias]
+	d = diff --word-diff
+	dc = diff --cached
+	st = status -s
+	cl = clone
+	ci = commit
+	co = checkout
+	diff = diff --word-diff
+	dc = diff --cached
+
+	l = log --oneline --decorate --all --reverse
+	ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --reverse
+	lsd = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --reverse --date=short
+	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat --reverse
+	lc = "!f() { git ll "$1"^.."$1"; }; f"
+	lf = log -u
+	filelog = log -u
+
+#	sl = stash list
+#	sa = stash apply
+#	ss = stash save
