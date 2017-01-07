@@ -22,7 +22,7 @@
 	tool = vimdiff
 
 [diff]
-	tool = vimdiff
+#	tool = vimdiff
 
 [difftool]
 	prompt = false
@@ -44,12 +44,13 @@
 [alias]
 	d = diff --word-diff
 	dc = diff --cached
-	st = status -s
+	s = status -s
 	cl = clone
 	ci = commit
 	co = checkout
-	diff = diff --word-diff
-	dc = diff --cached
+	
+	a = add
+	ai = add --interactive
 
 	l = log --oneline --decorate --all --reverse
 	ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --reverse
