@@ -1,84 +1,15 @@
 #!/usr/bin/env bash
 
-#
-# Author: Andi Lau <andi@herrlau.de>
-# Author: Tom Ryder (@tejr) <tom@sanctum.geek.nz>
-#
+set -e
 
-self=install
+CONFIG="install.conf.yaml"
+DOTBOT_DIR="dotbot"
 
-# Replace existing file with link if user confirms
-lns() {
-	local file=$1 link=$2
-	if [[ -e $link ]]; then 
-		read -p "$link already exists; remove? [y/N] " confirm
-		case $confirm in
-			y*|Y*)
-				rm -r -- "$link"
-				ln -s -- "$file" "$link"
-				return
-				;;
-			*)
-				return 1
-				;;
-		esac
-	else
-		ln -s -- "$file" "$link"
-	fi
-	return
-}
+DOTBOT_BIN="bin/dotbot"
+BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-# Check for git
-if ! hash git 2>/dev/null; then
-	printf '%s: Could not find git(1)!\n' "$self" <&2
-	exit 1
-fi
+cd "${BASEDIR}"
+git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive
+git submodule update --init --recursive "${DOTBOT_DIR}"
 
-# Check dotfiles directory
-dotfiles=$HOME/.dotfiles
-if ! [[ -d $dotfiles ]]; then
-	printf 'install: Could not find %s!\n' "$dotfiles" >&2
-	exit 1
-fi
-
-# Check out submodules
-(cd -- "$dotfiles" && git submodule update --init)
-
-# Link in configuraion files
-lns "$dotfiles"/bash/bashrc          "$HOME"/.bashrc
-lns "$dotfiles"/git/gitconfig        "$HOME"/.gitconfig
-lns "$dotfiles"/vim/vimrc            "$HOME"/.vimrc
-lns "$dotfiles"/vim                  "$HOME"/.vim
-lns "$dotfiles"/vim/gvimrc           "$HOME"/.gvimrc
-lns "$dotfiles"/zsh/zshrc            "$HOME"/.zshrc
-
-# Link in shell stuff
-while getopts :gntv opt; do
-    case $opt in
-
-        # GnuPG
-        g)
-            mkdir -p -- "$HOME"/.gnupg
-            lns "$dotfiles"/gnupg/gpg.conf       "$HOME"/.gnupg/gpg.conf
-            # lns "$dotfiles"/gnupg/gpg-agent.conf "$HOME"/.gnupg/gpg-agent.conf
-            ;;
-
-        # Ncmpcpp
-        n)
-            mkdir -p -- "$HOME"/.ncmpcpp
-            lns "$dotfiles"/ncmpcpp/config       "$HOME"/.ncmpcpp/config
-            ;;
-
-        # Tmux
-        t)
-            lns "$dotfiles"/tmux/tmux.conf "$HOME"/.tmux.conf
-            ;;
-
-        # Vimpc
-        v)
-            lns "$dotfiles"/vimpc/vimpcrc "$HOME"/.vimpcrc
-            ;;
-
-    esac
-done
-shift $((OPTIND-1))
+"${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" "${@}"

@@ -1,0 +1,7 @@
+- shell:
+  - mkdir -p ~/.bin
+- link:
+  ~/.gitconfig: gitconfig
+  ~/.zshrc: zshrc
+  ~/.tmux.conf: tmux.conf
+  ~/.vimrc: vimrc
