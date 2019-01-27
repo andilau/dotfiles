@@ -13,12 +13,14 @@ fi
 # Customize to your needs...
 
 # Shortcuts
-alias d="cd ~/Documents/Dropbox"
+alias d="cd ~/.dotfiles"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias p="cd ~/Projects"
-alias h="history"
+alias h="history -30"
 alias j="jobs"
+alias vi="nvim"
+alias v="nvim"
 
 # Always enable colored `grep` output
 # Note: `GREP_OPTIONS="--color=auto"` is deprecated, hence the alias usage.

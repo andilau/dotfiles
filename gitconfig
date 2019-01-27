@@ -55,6 +55,7 @@
 	l = log --oneline --decorate --all --reverse
 	ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --reverse
 	lsd = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --reverse --date=short
+	lsg = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --all --graph --date=short
 	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat --reverse
 	lc = "!f() { git ll "$1"^.."$1"; }; f"
 	lf = log -u
@@ -63,3 +64,7 @@
 #	sl = stash list
 #	sa = stash apply
 #	ss = stash save
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
