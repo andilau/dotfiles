@@ -1,7 +1,25 @@
 - shell:
-  - mkdir -p ~/.bin
+  - ['cd dotbot && git checkout master && git pull', 'Moving dotbot submodule to branch master and pulling']
+
+- defaults:
+    link:
+      create: true
+      relink: true
+
+- clean: ['~']
+
 - link:
-  ~/.gitconfig: gitconfig
-  ~/.zshrc: zshrc
-  ~/.tmux.conf: tmux.conf
-  ~/.vimrc: vimrc
+    ~/.bin: bin/
+    ~/.bashrc: bashrc
+    ~/.gitconfig: gitconfig
+    ~/.gitignore_global: gitignore_global
+    ~/.gvimrc: gvimrc
+    ~/.zshrc: zshrc
+    ~/.tmux.conf: tmux.conf
+    ~/.vimrc: vimrc
+    ~/.vimpcrc: vimpcrc
+
+- shell:
+  - ['git submodule update --init --recursive', 'Installing submodules']
+  - ['git submodule update --remote --recursive', 'Updating submodules']
+
