@@ -1,0 +1,9 @@
+*.swp
+.DS_Store
+vim/.vim/tmp_dirs/*
+!vim/.vim/tmp_dirs/.gitkeep
+.ycm_extra_conf.py
+*.pyc
+.cache
+.#*
+.meghanada
