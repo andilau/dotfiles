@@ -9,7 +9,6 @@
 - clean: ['~']
 
 - link:
-    ~/.bin: bin/
     ~/.bashrc: bashrc
     ~/.gitconfig: gitconfig
     ~/.gitignore_global: gitignore_global
@@ -19,7 +18,23 @@
     ~/.vimrc: vimrc
     ~/.vimpcrc: vimpcrc
 
+
+- brew:
+  - git
+  - exa
+
+
+- cask:
+  - colorpicker-materialdesign
+  - spotify
+  - google-chrome
+  - firefox
+  - beaker-browser
+  - iina
+  - quicklook-json
+  - quicklook-csv
+  - kitty
+  - virtualbox
+
 - shell:
   - ['git submodule update --init --recursive', 'Installing submodules']
-  - ['git submodule update --remote --recursive', 'Updating submodules']
-
