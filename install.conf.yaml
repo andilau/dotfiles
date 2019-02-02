@@ -13,7 +13,15 @@
     ~/.gitconfig: gitconfig
     ~/.gitignore_global: gitignore_global
     ~/.gvimrc: gvimrc
-    ~/.zshrc: zshrc
+
+    ~/.zprezto: zprezto
+    ~/.zlogin: zsh/zlogin
+    ~/.zlogout: zsh/zlogout
+    ~/.zpreztorc: zsh/zpreztorc
+    ~/.zprofile: zsh/zprofile
+    ~/.zshenv: zsh/zshenv
+    ~/.zshrc: zsh/zshrc
+
     ~/.tmux.conf: tmux.conf
     ~/.vimrc: vimrc
     ~/.vimpcrc: vimpcrc
