@@ -1,10 +1,11 @@
 dotfiles (Andi Lau)
 ===================
 
-Dotfiles of Andi Lau. This repo uses [Dotbot](https://github.com/anishathalye/dotbot) for installation.
+Dotfiles of Andi Lau. This repo uses [Dotbot](https://git.io/dotbot) for installation.
 
 ```sh
-$ git clone git://github.com/andilau/dotfiles.git ~/.dotfiles
+$ git clone git://github.com/andilau/dotfiles.git ~/.dotfiles && \
+$ cd ~/.dotfiles && \
 $ ./install
 ```
 Tools
