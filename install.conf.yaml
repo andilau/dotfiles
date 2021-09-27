@@ -26,13 +26,16 @@
     ~/.vimrc: vimrc
     ~/.vimpcrc: vimpcrc
 
-
 - brew:
   - git
   - exa
-
+  - sbcl
+  - leiningen
 
 - cask:
+  - iterm2
+  - kitty
+  - appcleaner
   - colorpicker-materialdesign
   - spotify
   - google-chrome
@@ -41,8 +44,10 @@
   - iina
   - quicklook-json
   - quicklook-csv
-  - kitty
   - virtualbox
+  - spotify
+  - keybase
 
 - shell:
   - ['git submodule update --init --recursive', 'Installing submodules']
+  - ['vim +PluginInstall +qall', 'Installing vim plugins']
