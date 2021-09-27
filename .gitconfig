@@ -6,7 +6,8 @@
 	user = andilau
 
 [core]
-	editor = vim
+	autocrlf = input
+	editor = nvim
 	pager = cat
 
 [log]
@@ -43,8 +44,8 @@
 
 [alias]
 	d = diff --word-diff
-	ds = diff --staged
 	dc = diff --cached
+	ds = diff --staged
 	s = status -sb
 	cl = clone
 	ci = commit
@@ -62,10 +63,8 @@
 	lf = log -u
 	filelog = log -u
 
-#	sl = stash list
-#	sa = stash apply
-#	ss = stash save
-[filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
-	required = true
+	sl = stash list
+	sa = stash apply
+	ss = stash save
+[init]
+	defaultBranch = main
