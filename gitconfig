@@ -43,8 +43,9 @@
 
 [alias]
 	d = diff --word-diff
+	ds = diff --staged
 	dc = diff --cached
-	s = status -s
+	s = status -sb
 	cl = clone
 	ci = commit
 	co = checkout
@@ -52,7 +53,7 @@
 	a = add
 	ai = add --interactive
 
-	l = log --oneline --decorate --all --reverse
+	l = log --pretty=oneline -n 20 --graph --abbrev-commit
 	ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --reverse
 	lsd = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --reverse --date=short
 	lsg = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --all --graph --date=short
