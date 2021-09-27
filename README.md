@@ -2,12 +2,24 @@ dotfiles (Andi Lau)
 ===================
 
 Dotfiles of Andi Lau.
+[Hacker News thread](https://news.ycombinator.com/item?id=11070797)
 
 ```sh
 $ git clone git://github.com/andilau/dotfiles.git ~/.dotfiles && \
 $ cd ~/.dotfiles && \
 ```
-Tools
+
+## Setup
+
+```sh
+git init --bare $HOME/.dotfiles
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+dotfiles config --local status.showUntrackedFiles no
+echo "alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'" >> $HOME/.bashrc
+echo "alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'" >> $HOME/.zshrc
+```
+
+## Tools
 -----
 
 *   [Bash](https://www.gnu.org/software/bash/) — GNU Bourne-Again Shell

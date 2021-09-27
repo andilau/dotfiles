@@ -102,3 +102,5 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 PATH="$PATH:/Users/andi/.mos/bin"
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+alias dotfiles='/usr/bin/git --git-dir=/Users/andi/.dotfiles/ --work-tree=/Users/andi'
