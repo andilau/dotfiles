@@ -65,9 +65,8 @@ if has('syntax')
     syntax enable
     set t_Co=256
     set background=dark
-    "silent! colorscheme solarized
-    silent! colorscheme gruvbox
-    call togglebg#map("<F5>")
+    silent! colorscheme solarized
+    " call togglebg#map("<F5>")
 endif
 
 
