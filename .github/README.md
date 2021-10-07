@@ -5,8 +5,9 @@ Dotfiles of Andi Lau.
 [Hacker News thread](https://news.ycombinator.com/item?id=11070797)
 
 ```sh
-$ git clone git://github.com/andilau/dotfiles.git ~/.dotfiles && \
-$ cd ~/.dotfiles && \
+git clone --bare git://github.com/andilau/dotfiles.git ~/.dotfiles
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+dotfiles config --local status.showUntrackedFiles no
 ```
 
 ## Setup
