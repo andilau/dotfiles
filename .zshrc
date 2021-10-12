@@ -1,79 +1,72 @@
-# Lines configured by zsh-newuser-install
-HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
+#
+# Executes commands at the start of an interactive session.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
 
-setopt autocd extendedglob notify
-bindkey -v
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
 
-# End of lines configured by zsh-newuser-install
-# The following lines were added by compinstall
-zstyle :compinstall filename '/Users/andi/.zshrc'
+# Prompt
+autoload -Uz promptinit
+promptinit
+prompt agnoster
 
-autoload -Uz compinit
-compinit
-# End of lines added by compinstall
+# Exports
 export EDITOR=nvim
 export VISUAL=nvim
 export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH" 
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:$PATH"
+export PATH="/usr/local/opt/libpq/bin:$PATH"
 export PATH="$HOME/.bin:$PATH"
 export MANPATH="/usr/local/opt/coreutils/libexec/gnubin:$MANPATH"
 export JAVA_HOME=$(/usr/libexec/java_home -v 11)
 
-# https://github.com/desyncr/auto-ls#customization
-auto-ls-exa () {
-  exa -a --group-directories-first --classify
-}
-
-# https://github.com/desyncr/auto-ls#configuration
-AUTO_LS_COMMANDS=(exa)
-AUTO_LS_NEWLINE=false
-AUTO_LS_CHPWD=false
-
-fpath=(/usr/local/share/zsh-completions $fpath)
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# https://wiki.archlinux.org/index.php/fzf#zsh
-# source /usr/share/fzf/key-bindings.zsh
-# source /usr/share/fzf/completion.zsh
-# https://github.com/junegunn/fzf#layout
-export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
-# https://github.com/junegunn/fzf#respecting-gitignore
-# export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
-# export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-
-# https://gist.github.com/anonymous/a9055e30f97bd19645c2
-alias ls='exa --group-directories-first --classify'
-alias l='exa --group-directories-first --classify'
-alias la='exa -a --group-directories-first --classify'
-alias ll='exa -l --group-directories-first --classify'
-alias lla='exa -al --group-directories-first --classify'
-alias lal='exa -al --group-directories-first --classify'
-alias lt='exa -T --group-directories-first --classify'
-alias lta='exa -aT --group-directories-first --classify'
-alias lat='exa -aT --group-directories-first --classify'
-
-alias ccd=$(git rev-parse --show-toplevel)
-
-
+# Shortcuts
+alias d="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+alias g="/usr/bin/git"
+alias dl="cd ~/Downloads"
+alias dt="cd ~/Desktop"
+alias dp="cd ~/Projects"
+alias h="history -30"
+alias j="jobs"
+alias vi="nvim"
+alias v="nvim"
 alias e=$EDITOR
 alias ez="$EDITOR $HOME/.zshrc"
-alias h='history -50'
+
+# Always enable colored `grep` output
+# Note: `GREP_OPTIONS="--color=auto"` is deprecated, hence the alias usage.
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+# Get week number
+alias week='date +%V'
+
+# Stopwatch
+alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
+
+# IP addresses
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias localip="ipconfig getifaddr en0"
+alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
+
+# Get OS X Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
+alias update='sudo softwareupdate -i -a; brew update; brew upgrade --all; brew cleanup; cd ~/.zprezto && git pull && git submodule update --init --recursive'
 alias saysay="say --voice "'"?"'" | cut -d "'" "'" -f 1 | xargs -I {} say --voice {} "'"Hello, my name is {}."'""
 
+# dotfiles
+alias dot="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 
+# Set vi mode
+bindkey -v
+bindkey -M viins 'jk' vi-cmd-mode
+bindkey '^R' history-incremental-search-backward
 
-source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-
-autoload -Uz promptinit
-  promptinit
-  prompt agnoster
-
+# FZF
+export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export PATH="/usr/local/opt/libpq/bin:$PATH"
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-alias dotfiles='/usr/bin/git --git-dir=/Users/andi/.dotfiles/ --work-tree=/Users/andi'
