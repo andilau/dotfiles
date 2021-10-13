@@ -15,7 +15,7 @@ dot config --local status.showUntrackedFiles no
 ```sh
 git init --bare $HOME/.dotfiles
 alias dot="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
-dotfiles config --local status.showUntrackedFiles no
+dot config --local status.showUntrackedFiles no
 echo "alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'" >> $HOME/.bashrc
 echo "alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'" >> $HOME/.zshrc
 ```
