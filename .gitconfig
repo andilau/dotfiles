@@ -6,7 +6,15 @@
 	user = andilau
 
 [core]
-	autocrlf = input
+	autocrlf = input	# no more crlf
+	excludesfile = ~/.gitignore
+	ignorecase = false 	# dont ignore case
+	whitespace = space-before-tab,-indent-with-non-tab,trailing-space
+
+	# Speed up commands involving untracked files such as `git status`.
+	# https://git-scm.com/docs/git-update-index#_untracked_cache
+	untrackedCache = true
+
 	editor = nvim
 	pager = cat
 
@@ -23,10 +31,17 @@
 	tool = vimdiff
 
 [diff]
-#	tool = vimdiff
+	algorithm = patience
+	renames = copies         # try to spot renaming of files
+	indentHeuristic = true	 # experimental to make patches easier to read
+	tool = nvimdiff
+	guitool = opendiff
 
 [difftool]
 	prompt = false
+
+[difftool "nvimdiff"]
+	cmd = nvim -d $LOCAL $REMOTE # $MERGED #-c '$wincmd w' -c 'wincmd J'
 
 [filter "media"]
 	clean = git-media-clean %f
