@@ -60,7 +60,7 @@ alias update='sudo softwareupdate -i -a; brew update; brew upgrade --all; brew c
 alias saysay="say --voice "'"?"'" | cut -d "'" "'" -f 1 | xargs -I {} say --voice {} "'"Hello, my name is {}."'""
 
 # dotfiles
-alias dot="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+alias dit="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 
 # Set vi mode
 bindkey -v
