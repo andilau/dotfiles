@@ -7,7 +7,7 @@ Dotfiles of Andi Lau.
 ```sh
 git clone --bare git://github.com/andilau/dotfiles.git ~/.dotfiles
 alias dit="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
-dotfiles config --local status.showUntrackedFiles no
+dit config --local status.showUntrackedFiles no
 ```
 
 ## Setup
