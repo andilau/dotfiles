@@ -22,10 +22,16 @@
 	date = local
 
 [push]
-	default = matching
+	default = simple
+
+[fetch]
+	prune = true		# delete local branches if remotes are gone
+	pruneTags = true	# delete local tags if remote are gone
+	output = compact	# be concise
 
 [pull]
-	default = matching
+	default = matchng
+	rebase = true
 
 [merge]
 	tool = vimdiff
@@ -65,9 +71,15 @@
 	cl = clone
 	ci = commit
 	co = checkout
-	
+	fixup = commit --fixup
+	amend = commit --amend --no-edit
+
 	a = add
 	ai = add --interactive
+
+	remotes = remote -v
+	branches = branch -l -v -a
+	tags = tag -l
 
 	l = log --pretty=oneline -n 20 --graph --abbrev-commit
 	ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --reverse
