@@ -1,8 +1,5 @@
 call plug#begin('~/.config/nvim/plugged')
 
-" theme
-Plug 'dylanaraps/wal.vim'
-
 " editor
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-surround'
@@ -26,7 +23,28 @@ Plug 'elzr/vim-json', {'for': ['json']}
 Plug 'gabrielelana/vim-markdown', {'for': ['markdown']}
 Plug 'mzlogin/vim-markdown-toc', {'for': ['markdown']}
 
+Plug 'neovim/nvim-lspconfig'
+  Plug 'glepnir/lspsaga.nvim'
+  Plug 'folke/lsp-colors.nvim'
+  Plug 'nvim-lua/completion-nvim'
+  Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+Plug 'williamboman/nvim-lsp-installer'
+
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+
+" theme
+Plug 'dylanaraps/wal.vim'
+Plug 'morhetz/gruvbox'
+
 call plug#end()
 
-colorscheme wal
+if (has("termguicolors"))
+ set termguicolors
+endif
+set background=dark
+
+" colorscheme wal
+colorscheme gruvbox
+
 

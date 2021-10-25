@@ -6,12 +6,13 @@ set fileformats=unix
 
 set shell=/bin/zsh       
 
-let mapleader = ','
-let g:mapleader = ','
-let b:mapleader = ','
+" let mapleader = ','
+" let g:mapleader = ','
+" let b:mapleader = ','
 
 source ~/.config/nvim/plugins.vim
 source ~/.config/nvim/editor.vim
+source ~/.config/nvim/mappings.vim
 " source ~/.config/nvim/filetype.vim
 " source ~/.config/nvim/session.vim
 
