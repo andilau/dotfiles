@@ -37,6 +37,8 @@ alias vi="nvim"
 alias v="nvim"
 alias e=$EDITOR
 alias ez="$EDITOR $HOME/.zshrc"
+alias ev="$EDITOR $HOME/.config/nvim/init.vim"
+alias evm="$EDITOR $HOME/.config/nvim/mappings.vim"
 
 # Always enable colored `grep` output
 # Note: `GREP_OPTIONS="--color=auto"` is deprecated, hence the alias usage.
