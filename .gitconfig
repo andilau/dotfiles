@@ -92,6 +92,10 @@
 
 	sl = stash list
 	sa = stash apply
-	ss = stash save
+    ss = stash save
+
+    prev = checkout HEAD^1
+    next = "!sh -c 'git log --reverse --pretty=%H master | awk \"/$(git rev-parse HEAD)/{getline;print}\" | xargs git checkout'"
+
 [init]
 	defaultBranch = main
