@@ -1,44 +1,13 @@
-#!/bin/bash
+#!/bin/sh
 
-# to enable loggin, use command: DEBUG=y uao ...
-debug=${DEBUG:-n}
-function log {
-  message=$1
-  if [[ ! -z "$message" ]] ; then
-    `test ".$debug" != ".n"` && echo "$message"
-  fi
-}
+fullFileName=$1
 
-archive="$(cd "$(dirname "$1")"; pwd -P)/$(basename "$1")"
-log "archive: $archive"
-if [[ -z "$archive" ]] ; then
-  echo "usage: $0 path/to/archive.zip"
-  exit 1
-fi
+suffix=${fullFileName#*.}
 
-base="$(basename -- $1)"
-log "base: $base"
-
-extension=${archive##*.}
-log "extension: $extension"
-if [[ ".$extension" != ".zip" ]] ; then
-  echo "only .zip archive is supported"
-  exit 2
-fi
-
-dir="${archive%.*}"
-log "dir: $dir"
-
-if [[ -d "$dir" ]] ; then
-  echo "directory $dir already exists"
-  exit 3
-fi
-
-parent="$(dirname "$archive")"
-log "parent: $parent"
-
-log "unzip -d $parent/ $archive"
-unzip -d "$parent" "$archive"
-
-log "idea $dir"
-idea $dir/
+if [ "$suffix" != "zip" ];then
+  echo "Must be a valid zip file"
+else
+  filename=${fullFileName%.*}
+  echo "filename: $filename"
+  echo "now unzip $1 and use idea $1"
+  unzip $1 && idea $filename
