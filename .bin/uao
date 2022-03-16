@@ -11,3 +11,4 @@ else
   echo "filename: $filename"
   echo "now unzip $1 and use idea $1"
   unzip $1 && idea $filename
+fi
