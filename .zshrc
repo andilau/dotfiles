@@ -25,6 +25,12 @@ export PATH="$HOME/.bin:$PATH"
 export MANPATH="/usr/local/opt/coreutils/libexec/gnubin:$MANPATH"
 export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 
+alias jdks="/usr/libexec/java_home -V"
+alias j8="export JAVA_HOME=$(/usr/libexec/java_home -v 1.8) && java -version"
+alias j11="export JAVA_HOME=$(/usr/libexec/java_home -v 11) && java -version"
+alias j16="export JAVA_HOME=$(/usr/libexec/java_home -v 16) && java -version"
+alias j18="export JAVA_HOME=$(/usr/libexec/java_home -v 18) && java -version"
+
 # Shortcuts
 alias d="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 alias g="/usr/bin/git"
