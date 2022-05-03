@@ -23,7 +23,7 @@ export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:$PATH"
 export PATH="/usr/local/opt/libpq/bin:$PATH"
 export PATH="$HOME/.bin:$PATH"
 export MANPATH="/usr/local/opt/coreutils/libexec/gnubin:$MANPATH"
-export JAVA_HOME=$(/usr/libexec/java_home -v 11)
+export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 
 # Shortcuts
 alias d="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
@@ -72,3 +72,6 @@ bindkey '^R' history-incremental-search-backward
 # FZF
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+alias dit='/usr/bin/git --git-dir=/Users/Andreas.Lau/.dotfiles/ --work-tree=/Users/Andreas.Lau'
+
+source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
