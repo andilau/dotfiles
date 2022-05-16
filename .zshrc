@@ -25,11 +25,7 @@ export PATH="$HOME/.bin:$PATH"
 export MANPATH="/usr/local/opt/coreutils/libexec/gnubin:$MANPATH"
 export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 
-alias jdks="/usr/libexec/java_home -V"
-alias j8="export JAVA_HOME=$(/usr/libexec/java_home -v 1.8) && java -version"
-alias j11="export JAVA_HOME=$(/usr/libexec/java_home -v 11) && java -version"
-alias j16="export JAVA_HOME=$(/usr/libexec/java_home -v 16) && java -version"
-alias j18="export JAVA_HOME=$(/usr/libexec/java_home -v 18) && java -version"
+alias jdks="sdk list java"
 
 # Shortcuts
 alias d="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
@@ -81,3 +77,7 @@ export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
 alias dit='/usr/bin/git --git-dir=/Users/Andreas.Lau/.dotfiles/ --work-tree=/Users/Andreas.Lau'
 
 source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
